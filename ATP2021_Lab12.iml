@@ -12,17 +12,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="lib1" level="project" />
-    <orderEntry type="module-library" exported="">
-      <library name="ATPProjectJAR">
-        <CLASSES>
-          <root url="file://$USER_HOME$/IdeaProjects/ATP2021_Lab10/ATP_Project_PartB_jar" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-        <jarDirectory url="file://$USER_HOME$/IdeaProjects/ATP2021_Lab10/ATP_Project_PartB_jar" recursive="false" />
-      </library>
-    </orderEntry>
-    <orderEntry type="library" name="ATPProjectJAR" level="project" />
+    <orderEntry type="library" exported="" name="lib1" level="project" />
   </component>
 </module>

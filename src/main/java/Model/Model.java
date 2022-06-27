@@ -54,11 +54,7 @@ public class Model extends Observable implements IModel {
                         byte[] decompressedMaze = new byte[mazeDimensions[0]*mazeDimensions[1] + 72];
                         is.read(decompressedMaze);
                         Maze maze = new Maze(decompressedMaze);
-                        for (int i = 0; i < width; i++) {
-                            for (int j = 0; j < height; j++) {
-                                maze.setCell(maze.getCell(i, j),i,j);
-                            }
-                        }
+
                         playerCol = maze.getStartPosition().getColumnIndex();
                         playerRow = maze.getStartPosition().getRowIndex();
 

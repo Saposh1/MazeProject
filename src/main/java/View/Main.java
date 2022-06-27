@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+
 import java.io.File;
 import java.net.URL;
 
@@ -23,11 +24,15 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 1000, 700));
         primaryStage.show();
 
-        IModel model = new Model();
+        Model model = new Model();
         ViewModel viewModel = new ViewModel(model);
         MyViewController view = fxmlLoader.getController();
         view.setViewModel(viewModel);
-    }
+        model.start();
+        view.setViewModel(viewModel);
+        viewModel.addObserver(view);
+
+        }
 
     public static void main(String[] args) {
         launch(args);
