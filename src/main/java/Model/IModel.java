@@ -1,8 +1,6 @@
 package Model;
 
-import algorithms.mazeGenerators.IMazeGenerator;
 import algorithms.mazeGenerators.Maze;
-import algorithms.search.ASearchingAlgorithm;
 import algorithms.search.Solution;
 
 import java.util.Observer;
@@ -14,10 +12,12 @@ public interface IModel {
     int getPlayerRow();
     int getPlayerCol();
     void assignObserver(Observer o);
-    void solveMaze();
+    void solveMaze(Maze maze);
     boolean finish();
     Solution getSolution() ;
-    void updateConf(int row, int col,String solAlg,String genAlg);
+    void updateConf(String solAlg,String genAlg);
     String getGenConf();
     String getSolveConf();
+    void writeErrorToLog();
+
 }

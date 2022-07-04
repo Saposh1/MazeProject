@@ -1,12 +1,13 @@
 .root {
-    -fx-background-color: #BC5150 ;
+    -fx-background-image: url("/images/screen.jpg");
+    -fx-background-size: 100% 100%;
 }
 
 Button {
     -fx-text-fill: black;
     -fx-font-family: "Showcard Gothic";
     -fx-font-weight: bold;
-    -fx-background-color: linear-gradient(silver,white);
+    -fx-background-color: linear-gradient(saddlebrown,sandybrown);
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.6), 5, 0.0, 0, 1);
 }
 

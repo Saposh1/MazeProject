@@ -2,17 +2,17 @@ package ViewModel;
 
 import Model.IModel;
 import Model.MovementDirection;
-import Model.Solution;
 import algorithms.mazeGenerators.Maze;
+import algorithms.search.Solution;
 import javafx.scene.input.KeyEvent;
 
 import java.util.Observable;
 import java.util.Observer;
 
-public class ViewModel extends Observable implements Observer {
+public class MyViewModel extends Observable implements Observer {
     private IModel model;
 
-    public ViewModel(IModel model) {
+    public MyViewModel(IModel model) {
         this.model = model;
         this.model.assignObserver(this); //Observe the Model for it's changes
     }
@@ -24,7 +24,9 @@ public class ViewModel extends Observable implements Observer {
             notifyObservers(arg);
         }
     }
-
+    public Solution getSol(){
+        return model.getSolution();
+    }
     public Maze getMaze(){
         return model.getMaze();
     }
@@ -58,6 +60,21 @@ public class ViewModel extends Observable implements Observer {
     }
 
     public void solveMaze(Maze maze){
-       model.solveMaze();
+       model.solveMaze(maze);
+    }
+
+    public String getGenAlg() {
+        return model.getGenConf();
+    }
+
+    public String getSolverAlg() {
+        return model.getSolveConf();
+    }
+
+    public void updateConfig(String value, String value1) {
+        model.updateConf(value1,value);
+    }
+    public void writeErrorToLog() {
+        model.writeErrorToLog();
     }
 }

@@ -17,7 +17,7 @@ import algorithms.search.Solution;
 //import org.apache.logging.log4j.LogManager;
 //import org.apache.logging.log4j.Logger;
 
-public class Model extends Observable implements IModel {
+public class MyModel extends Observable implements IModel {
     private Maze maze;
     private int playerRow;
     private int playerCol;
@@ -27,7 +27,7 @@ public class Model extends Observable implements IModel {
     private Server servGen = new Server(5400,1000,new ServerStrategyGenerateMaze());
     private Server servSol = new Server(5402,1000,new ServerStrategySolveSearchProblem());
 
-    public Model()
+    public MyModel()
     {
         this.maze=null;
         this.playerRow=0;
@@ -53,8 +53,7 @@ public class Model extends Observable implements IModel {
                         InputStream is = new MyDecompressorInputStream(new ByteArrayInputStream(compressedMaze));
                         byte[] decompressedMaze = new byte[mazeDimensions[0]*mazeDimensions[1] + 72];
                         is.read(decompressedMaze);
-                        Maze maze = new Maze(decompressedMaze);
-
+                        maze = new Maze(decompressedMaze);
                         playerCol = maze.getStartPosition().getColumnIndex();
                         playerRow = maze.getStartPosition().getRowIndex();
 
@@ -162,6 +161,7 @@ public class Model extends Observable implements IModel {
             setChanged();
             if(finish()){
                 notifyObservers("finish");
+
             }
             else{
                 notifyObservers("update location");
@@ -197,24 +197,13 @@ public class Model extends Observable implements IModel {
     }
 
 
-
-    @Override
-    public void solveMaze() {
-        //solve the maze
-        solution = new Solution();
-        setChanged();
-        notifyObservers("maze solved");
-    }
-
     @Override
     public Solution getSolution() {
         return solution;
     }
 
     @Override
-    public void updateConf(int row, int col, String solAlg, String genAlg) {
-        rows=row;
-        cols=col;
+    public void updateConf(String solAlg, String genAlg) {
         Configurations conf = Configurations.getInstance();
         conf.setGenAlgorithm(genAlg);
         conf.setSolverAlgorithm(solAlg);
@@ -232,5 +221,14 @@ public class Model extends Observable implements IModel {
     public String getSolveConf() {
         Configurations conf = Configurations.getInstance();
         return conf.getSolverAlgorithm();
+    }
+
+    @Override
+    public void writeErrorToLog() {
+//        try {
+//            LOG.error("User " + InetAddress.getLocalHost().getHostAddress() +" - entered invalid arguments to config file!");
+//        } catch (UnknownHostException e) {
+//            e.printStackTrace();
+//        }
     }
 }
