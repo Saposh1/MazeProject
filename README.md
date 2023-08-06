@@ -4,5 +4,5 @@ This is a system that creates mazes of different sizes and solves them with 3 po
 The user has the ability to choose the algorithm that will build the maze and the algorithm that will find the solution of the maze.
 Also, the user choose the desired size of the maze.
 
-https://github.com/Saposh1/MazeProject/assets/103626425/0f61e299-4de3-4c31-88c5-1ee2df2b25c4
+https://github.com/Saposh1/MazeProject/assets/103626425/7c5ff905-89ae-41bc-92c0-ef88f85e1490
 
